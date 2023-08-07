@@ -35,7 +35,11 @@ function App() {
   const [noteEditing, setNoteEditing] = React.useState();
 
   
-  const [todos, setTodos] = React.useState(JSON.parse(localStorage.getItem('notesArr')) || JSON.parse([...notes]));
+  const [todos, setTodos] = React.useState(() => {
+    const storedNotes = localStorage.getItem('notesArr');
+    const initialNotes = storedNotes ? JSON.parse(storedNotes) : [...notes];
+    return initialNotes;
+  });  
   const [archivedTodos, setArchivedTodos] = React.useState([]);
 
   const [searching, setSearching] = React.useState('');
@@ -55,6 +59,10 @@ function App() {
     localStorage.setItem('notesArr', JSON.stringify(todos));
   }
 
+  React.useEffect(() => {
+    localStorage.setItem('notesArr', JSON.stringify(todos));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [todos]);  
   React.useEffect(() =>{ 
     if (todos.length === 0 || renderedNotes.length === 0) {
       setIsEmpty(true)
