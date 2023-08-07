@@ -37,6 +37,7 @@
     @media (max-width: 767.98px) {
       gap: calc(12px + (16 - 12) * ((100vw - 320px) / (767.98 - 320)));
       flex-wrap: wrap;
+      
     }
   }
 }
