@@ -37,7 +37,7 @@ main {
 .wrapper {
     position: relative;
     flex: 1 1 auto;
-    height: 100dvh;
+    max-height: 100dvh;
     display: flex;
     flex-direction: column;
     background-color: $white;
