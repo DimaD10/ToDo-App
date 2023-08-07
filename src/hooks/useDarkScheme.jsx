@@ -25,6 +25,7 @@ const useDarkScheme = () => {
           checkScheme(cachedDarkScheme);
         }
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     
     React.useEffect(() => {
