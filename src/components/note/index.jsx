@@ -14,12 +14,14 @@ function Note(props) {
     if (isEditing) {
       editRef.current.focus();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEditing]);
 
   React.useEffect(() => {
     if (props.status === 'complete')  {
       setCheckedNote(!checkedNote);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const handleCheck = () => {
@@ -68,6 +70,7 @@ function Note(props) {
       setIsEditing(false)
       setEditText(currentText);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.noteEd])
   
 

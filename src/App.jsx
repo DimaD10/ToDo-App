@@ -48,6 +48,7 @@ function App() {
     if (savedNotes) {
       setTodos(JSON.parse(localStorage.getItem('notesArr')))
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const updNotes = () => {
@@ -61,6 +62,7 @@ function App() {
       setIsEmpty(false)
     }
     updNotes();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todos, filteredNotes])
 
   const openPopup = () => {
@@ -111,6 +113,7 @@ function App() {
         setTimer(timer => 5);
       }, 300)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timer])
 
   const clickToRm = (i) => {
@@ -179,6 +182,7 @@ function App() {
 
   React.useEffect(() => {
     refreshFiltering();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todos, selectedOption, searching])
 
   const renderedNotes = filteredNotes.map((obj, i) => 
