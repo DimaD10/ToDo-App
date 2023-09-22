@@ -68,9 +68,9 @@ function Note(props) {
   }
 
   const rmNote = (e) => {
+    setNoteHeight(0)
     props.rmNote(props.index)
     setRmAnim(!rmAnim)
-    setNoteHeight(0)
   }
 
   React.useEffect(() => {
@@ -89,7 +89,6 @@ function Note(props) {
   React.useEffect(() => {
     if (noteParent.current) {
       setNoteHeight(noteParent.current.offsetHeight);
-      console.log(noteParent.current.offsetHeight);
     }
   }, [props.list, props.noteEd])
   
