@@ -7,6 +7,8 @@ function Note(props) {
   const [editText, setEditText] = React.useState(props.value);
   const [currentText, setCurrentText] = React.useState(props.value);
 
+  const [noteHeight, setNoteHeight] = React.useState()
+
   const [rmAnim, setRmAnim] = React.useState(false)
 
   const editRef = React.useRef();
@@ -68,6 +70,7 @@ function Note(props) {
   const rmNote = (e) => {
     props.rmNote(props.index)
     setRmAnim(!rmAnim)
+    setNoteHeight(0)
   }
 
   React.useEffect(() => {
@@ -79,10 +82,20 @@ function Note(props) {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.noteEd])
+
+
+  const noteParent = React.useRef(null)
+
+  React.useEffect(() => {
+    if (noteParent.current) {
+      setNoteHeight(noteParent.current.offsetHeight);
+      console.log(noteParent.current.offsetHeight);
+    }
+  }, [props.list, props.noteEd])
   
 
   return (
-    <div className={`note-parent ${rmAnim ? 'isAnim' : ''}`}>
+    <div className={`note-parent ${rmAnim ? 'isAnim' : ''}`} ref={noteParent} style={{height: noteHeight + "px"}}>
       <div  className={`note ${checkedNote ? 'note_checked' : ''}`}>
         <div className='note__checkbox' onClick={handleCheck}></div>
         <div
