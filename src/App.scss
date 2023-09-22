@@ -71,9 +71,11 @@
         content: '';
         position: absolute;
         width: 100%;
-        top: 20px;
+        top: 16px;
         left: 0;
-        height: 1px;
+        height: 8px;
+        z-index: 999;
+        pointer-events: none;
         background-color: $white;
         transition: background-color ease-in-out $animSpeed;
       }

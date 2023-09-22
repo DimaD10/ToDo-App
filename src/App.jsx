@@ -129,7 +129,9 @@ function App() {
     newNotes = [...todos];
     setArchivedTodos([...todos]);
     newNotes.splice(i, 1);
-    setTodos(newNotes);
+    setTimeout(() => {
+      setTodos(newNotes);
+    }, 300)
     setNoteEditing('');
 
     if (activeUndo === true) {
